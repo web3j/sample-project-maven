@@ -13,6 +13,9 @@
         <logback-classic.version>1.2.3</logback-classic.version>
         <web3j-maven-plugin.version>0.3.7</web3j-maven-plugin.version>
         <junit.version>4.12</junit.version>
+        <exec-maven-plugin>1.6.0</exec-maven-plugin>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -50,11 +53,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin}</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <mainClass>org.web3j.sample.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>
