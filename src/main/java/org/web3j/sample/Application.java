@@ -86,7 +86,7 @@ public class Application {
                 credentials,
                 contractGasProvider,
                 "test"
-                ).send();
+        ).send();
 
         String contractAddress = contract.getContractAddress();
         log.info("Smart contract deployed to address " + contractAddress);
