@@ -6,32 +6,32 @@
 
     <groupId>org.web3j.sample</groupId>
     <artifactId>sample-project-maven</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <web3j.version>3.6.0</web3j.version>
+        <logback-classic.version>1.2.3</logback-classic.version>
+        <web3j-maven-plugin.version>0.3.7</web3j-maven-plugin.version>
+        <junit.version>4.12</junit.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
-            <version>3.6.0</version>
+            <version>${web3j.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>${logback-classic.version}</version>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -39,9 +39,14 @@
             <plugin>
                 <groupId>org.web3j</groupId>
                 <artifactId>web3j-maven-plugin</artifactId>
-                <version>0.3.7</version>
+                <version>${web3j-maven-plugin.version}</version>
                 <configuration>
-                    <soliditySourceFiles/>
+                    <soliditySourceFiles>
+                        <directory>src/main/solidity</directory>
+                        <includes>
+                            <include>*.sol</include>
+                        </includes>
+                    </soliditySourceFiles>
                 </configuration>
             </plugin>
             <plugin>
