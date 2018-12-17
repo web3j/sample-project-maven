@@ -27,7 +27,7 @@ on line `66-67` replace the placeholders with your wallet file password and dire
 - With the access token retrieved from Infura, on line `58` replace the placeholder 
 in the url with your token. You can find this under the `Endpoint` section:
 
-![Alt text](InfuraTokenPointer.png)
+![Alt text](Artboard.png)
 
 Once these details have been added to the main Application class, you'll be good to go.
 
