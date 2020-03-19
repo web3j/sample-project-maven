@@ -28,7 +28,8 @@ pipeline {
       }
       stage('docker build') {
          steps {
-             sh "docker build -t=dockerfile/nginx ."
+             sh "docker build -t=saijyothi9/nginx ."
+             sh "docker push saijyothi9/nginx"
          }
       }
         
