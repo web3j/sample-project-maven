@@ -36,11 +36,11 @@ pipeline {
              sh "docker push saijyothi9/nginx"
          }
       }
-       stage('docker run ') {
+       stage('docker run') {
          steps {
              sh "docker stop \$(docker ps -a -q)"
 			 sh "docker rm \$(docker ps -a -q)"
-             sh "docker run --name mynginx1 -p 80:80 -d saijyothi9/nginx"
+			 sh "docker run --name mynginx1 -p 80:80 -d saijyothi9/nginx"
          }
       }
         
