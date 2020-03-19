@@ -3,8 +3,10 @@ pipeline {
 
    stages {
       stage('Clone') {
+         steps {
       // Get some code from a GitHub repository
           checkout scm
+         }
       }
       stage('Build') {
          steps {
@@ -25,7 +27,9 @@ pipeline {
          }
       }
       stage('Install') {
-        sh "mvn install"
+        steps {
+           sh "mvn install"
+        }
       }
         
    }
