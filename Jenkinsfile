@@ -26,11 +26,7 @@ pipeline {
             }
          }
       }
-      stage('Install') {
-        steps {
-           sh "mvn install"
-        }
-      }
+     
         
    }
 }
