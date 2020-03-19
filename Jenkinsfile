@@ -27,7 +27,9 @@ pipeline {
          }
       }
       stage('docker build') {
-         sh "docker build -t=dockerfile/nginx ."
+         steps {
+             sh "docker build -t=dockerfile/nginx ."
+         }
       }
         
    }
