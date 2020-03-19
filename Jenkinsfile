@@ -29,7 +29,17 @@ pipeline {
       stage('docker build') {
          steps {
              sh "docker build -t=saijyothi9/nginx ."
+         }
+      }
+       stage('docker push') {
+         steps {
              sh "docker push saijyothi9/nginx"
+         }
+      }
+       stage('docker run ') {
+         steps {
+             sh "docker rm $(docker ps -a -q)
+             sh "ddocker run --name mynginx1 -p 80:80 -d nginx
          }
       }
         
