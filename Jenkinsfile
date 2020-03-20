@@ -21,19 +21,19 @@ pipeline {
       }
       stage('docker build') {
          steps {
-             sh "docker build -t=saijyothi9/nginx ."
+		 sh "docker build -t=${params.docker_tag} ."
          }
       }
        stage('docker push') {
          steps {
-             sh "docker push saijyothi9/nginx"
+             sh "docker push ${params.docker_tag}"
          }
       }
        stage('docker run') {
          steps {
              sh "docker stop \$(docker ps -a -q)"
 			 sh "docker rm \$(docker ps -a -q)"
-			 sh "docker run --name mynginx1 -p 80:80 -d saijyothi9/nginx"
+			 sh "docker run --name mynginx1 -p 80:80 -d ${params.docker_tag}"
          }
       }
         
