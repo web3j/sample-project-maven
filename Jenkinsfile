@@ -11,7 +11,7 @@ pipeline {
       stage('Build') {
          steps {
             // Run Maven on a Unix agent.
-            sh "mvn web3j:generate-sources"
+		 sh ${params.build_url}
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
