@@ -1,6 +1,6 @@
 pipeline {
    agent {
-	  label '${params.slave_name}'
+	  label "${params.slave_name}"
 	}
 
    stages {
