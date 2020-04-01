@@ -1,7 +1,5 @@
 pipeline {
-   agent {
-	  label "${params.slave_name}"
-	}
+   agent any
 
    stages {
       stage('Clone') {
@@ -13,7 +11,7 @@ pipeline {
       stage('Build') {
          steps {
             // Run Maven on a Unix agent.
-		 sh "${params.build_cmd}"
+		 sh "mvn -v"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -21,19 +19,19 @@ pipeline {
       }
       stage('docker build') {
          steps {
-		 sh "docker build -t=${params.docker_tag} ."
+		 sh "docker build -t sample ."
          }
       }
        stage('docker push') {
          steps {
-             sh "docker push ${params.docker_tag}"
+             sh "docker push sample"
          }
       }
        stage('docker run') {
          steps {
              sh "docker stop \$(docker ps -a -q)"
 			 sh "docker rm \$(docker ps -a -q)"
-			 sh "docker run --name mynginx1 -p 80:80 -d ${params.docker_tag}"
+			 sh "docker run --name mynginx1 -p 80:80 -d sample"
          }
       }
         
