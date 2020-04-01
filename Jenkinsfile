@@ -20,6 +20,7 @@ pipeline {
       stage('docker build') {
          steps {
 		 sh "docker build -t saijyothi9/sample ."
+		 echo "Overwrite the demo??"
          }
       }
        stage('docker push') {
