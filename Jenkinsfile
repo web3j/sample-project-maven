@@ -19,19 +19,19 @@ pipeline {
       }
       stage('docker build') {
          steps {
-		 sh "docker build -t sample ."
+		 sh "docker build -t saijyothi9/sample ."
          }
       }
        stage('docker push') {
          steps {
-             sh "docker push sample"
+             sh "docker push saijyothi9/sample"
          }
       }
        stage('docker run') {
          steps {
              sh "docker stop \$(docker ps -a -q)"
 			 sh "docker rm \$(docker ps -a -q)"
-			 sh "docker run --name mynginx1 -p 80:80 -d sample"
+			 sh "docker run --name mynginx1 -p 80:80 -d saijyothi9/sample"
          }
       }
         
