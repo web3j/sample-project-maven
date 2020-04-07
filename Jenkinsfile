@@ -6,7 +6,7 @@ pipeline {
          steps {
       // Get some code from a GitHub repository
           checkout scm
-		  echo "Test branch" 
+		  echo "Merging test branch to master" 
          }
       }
       stage('Build') {
