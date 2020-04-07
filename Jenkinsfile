@@ -6,6 +6,7 @@ pipeline {
          steps {
       // Get some code from a GitHub repository
           checkout scm
+		  echo "Test branch" 
          }
       }
       stage('Build') {
@@ -19,7 +20,6 @@ pipeline {
       stage('docker build') {
          steps {
 		 sh "docker build -t saijyothi9/sample ."
-		 echo "Overwrite the demo??"
          }
       }
        stage('docker push') {
