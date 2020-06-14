@@ -6,7 +6,7 @@
 
     <groupId>org.web3j.sample</groupId>
     <artifactId>sample-project-maven</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-REL</version>
 
     <properties>
         <web3j.version>3.6.0</web3j.version>
