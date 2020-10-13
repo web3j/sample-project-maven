@@ -12,7 +12,7 @@
         <web3j.version>3.6.0</web3j.version>
         <logback-classic.version>1.2.3</logback-classic.version>
         <web3j-maven-plugin.version>0.3.7</web3j-maven-plugin.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <exec-maven-plugin>1.6.0</exec-maven-plugin>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
