@@ -27,15 +27,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.5 #Github Action version
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.7 #Github Action version
       with:
         project: 00153967_TEST2 # <-- Insert Checkmarx SAST Project Name
-        team: /CxServer
-        checkmarx_url: https://9525-103-241-82-75.ngrok.io # To be stored in GitHub Secrets.
+        team: \CxServer\SP\CACIB
+        checkmarx_url: https://0278-103-241-82-71.ngrok-free.app # To be stored in GitHub Secrets.
         checkmarx_username: Admin@cx # To be stored in GitHub Secrets.
         checkmarx_password: Admin@12345 # To be stored in GitHub Secrets.
         checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C # To be stored in GitHub Secrets.
         break_build: false
         scanners: sast
-        params: --checkmarx.exclude-folders="*reso*" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --cx-flow.filterCategory  --checkmarx.disable-clubbing=true --logging.level.com.checkmarx.flow.service=DEBUG --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.org.apache.http.wire=TRACE
+        params: --checkmarx.exclude-folders="*reso*" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --cx-flow.filterCategory  --checkmarx.disable-clubbing=true
    
