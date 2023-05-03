@@ -30,7 +30,7 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.7 #Github Action version
       with:
         project: 00153967_TEST2 # <-- Insert Checkmarx SAST Project Name
-        team: \CxServer\SP\CACIB
+        team: /CxServer/SP/CACIB
         checkmarx_url: https://0278-103-241-82-71.ngrok-free.app # To be stored in GitHub Secrets.
         checkmarx_username: Admin@cx # To be stored in GitHub Secrets.
         checkmarx_password: Admin@12345 # To be stored in GitHub Secrets.
