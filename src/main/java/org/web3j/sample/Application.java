@@ -17,7 +17,7 @@ import org.web3j.utils.Numeric;
 import java.math.BigDecimal;
 
 /**
- * A simple web3j application that demonstrates a number of core features of web3j:
+ * #####A simple web3j application that demonstrates a number of core features of web3j:
  *
  * <ol>
  *     <li>Connecting to a node on the Ethereum network</li>
