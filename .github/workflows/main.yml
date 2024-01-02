@@ -1,0 +1,36 @@
+            - name: Code Review by GPT
+  # You may pin to the exact commit or the version.
+  # uses: yu-iskw/gpt-code-review-action@650537fd9daf48899e05b7b9bcb422c6545a06a6
+  uses: yu-iskw/gpt-code-review-action@v0.3.0
+  with:
+    # The Open API token to use for the action
+    openai_api_key: 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
+    # The GitHub token to use for the action
+    github_token: 
+    # The GitHub repository to use for the action
+    github_repository: # default is ${{ github.repository }}
+    # The GitHub pull request number to use for the action
+    github_pull_request_number: # default is ${{ github.event.pull_request.number }}
+    # The GitHub commit hash to use for the action
+    git_commit_hash: # default is ${{ github.event.pull_request.head.sha }}
+    # GPT model
+    model: # default is text-davinci-003
+    # Extra prompt for GPT
+    extra_prompt: # optional, default is 
+    # Temperature for GPT
+    temperature: # optional, default is 0.7
+    # Max tokens for GPT
+    max_tokens: # optional, default is 256
+    # Top p for GPT
+    top_p: # optional, default is 1
+    # Frequency penalty for GPT
+    frequency_penalty: # optional, default is 0.0
+    # Presence penalty for GPT
+    presence_penalty: # optional, default is 0.0
+    # Pull request diff
+    pull_request_diff: 
+    # Pull request chunk size
+    pull_request_chunk_size: # optional, default is 3500
+    # Log level
+    log_level: # optional, default is INFO
+          
