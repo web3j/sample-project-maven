@@ -1,36 +1,48 @@
-            - name: Code Review by GPT
-  # You may pin to the exact commit or the version.
-  # uses: yu-iskw/gpt-code-review-action@650537fd9daf48899e05b7b9bcb422c6545a06a6
-  uses: yu-iskw/gpt-code-review-action@v0.3.0
-  with:
-    # The Open API token to use for the action
-    openai_api_key: ${{ secrets.OPEN_API_KEY }}
-    # The GitHub token to use for the action
-    github_token: 
-    # The GitHub repository to use for the action
-    github_repository: # default is ${{ github.repository }}
-    # The GitHub pull request number to use for the action
-    github_pull_request_number: # default is ${{ github.event.pull_request.number }}
-    # The GitHub commit hash to use for the action
-    git_commit_hash: # default is ${{ github.event.pull_request.head.sha }}
-    # GPT model
-    model: # default is text-davinci-003
-    # Extra prompt for GPT
-    extra_prompt: # optional, default is 
-    # Temperature for GPT
-    temperature: # optional, default is 0.7
-    # Max tokens for GPT
-    max_tokens: # optional, default is 256
-    # Top p for GPT
-    top_p: # optional, default is 1
-    # Frequency penalty for GPT
-    frequency_penalty: # optional, default is 0.0
-    # Presence penalty for GPT
-    presence_penalty: # optional, default is 0.0
-    # Pull request diff
-    pull_request_diff: 
-    # Pull request chunk size
-    pull_request_chunk_size: # optional, default is 3500
-    # Log level
-    log_level: # optional, default is INFO
-          
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#          http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+name: "Test Code Review"
+
+on:
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - "LICENSE"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: yu-iskw/gpt-code-review-action@v0.3.0
+        name: "Code Review by GPT"
+        id: review
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repository: ${{ github.repository }}
+          github_pull_request_number: ${{ github.event.pull_request.number }}
+          git_commit_hash: ${{ github.event.pull_request.head.sha }}
+          model: "gpt-3.5-turbo"
+          temperature: "0.1"
+          max_tokens: "512"
+          top_p: "1"
+          frequency_penalty: "0.0"
+          presence_penalty: "0.0"
+          pull_request_diff: |-
+            ${{ steps.get_diff.outputs.pull_request_diff }}
+          pull_request_chunk_size: "3500"
+          extra_prompt: |-
+            You are very familiar with python too.
+          log_level: "DEBUG"
