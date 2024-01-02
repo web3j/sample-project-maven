@@ -4,7 +4,7 @@
   uses: yu-iskw/gpt-code-review-action@v0.3.0
   with:
     # The Open API token to use for the action
-    openai_api_key: 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
+    openai_api_key: $OPEN_API_KEY
     # The GitHub token to use for the action
     github_token: 
     # The GitHub repository to use for the action
