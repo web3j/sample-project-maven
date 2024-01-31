@@ -61,11 +61,7 @@ public class Application {
 
         // We then need to load our Ethereum wallet file
         // FIXME: Generate a new wallet file using the web3j command line tools https://docs.web3j.io/command_line.html
-        Credentials credentials =
-                WalletUtils.loadCredentials(
-                        "<password>",
-                        "/path/to/<walletfile>");
-        log.info("Credentials loaded");
+        
 
         // FIXME: Request some Ether for the Rinkeby test network at https://www.rinkeby.io/#faucet
         log.info("Sending 1 Wei ("
@@ -103,11 +99,6 @@ public class Application {
         // contract to the blockchain. Index events cannot be logged in their entirety.
         // For Strings and arrays, the hash of values is provided, not the original value.
         // For further information, refer to https://docs.web3j.io/filters.html#filters-and-events
-        for (Greeter.ModifiedEventResponse event : contract.getModifiedEvents(transactionReceipt)) {
-            log.info("Modify event fired, previous value: " + event.oldGreeting
-                    + ", new value: " + event.newGreeting);
-            log.info("Indexed event previous value: " + Numeric.toHexString(event.oldGreetingIdx)
-                    + ", new value: " + Numeric.toHexString(event.newGreetingIdx));
-        }
+        
     }
 }
